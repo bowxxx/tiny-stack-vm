@@ -26,7 +26,7 @@ case 4:D[s]=D[s-1],s++;break;
 case 5:[D[s-1],D[s-2]]=[D[s-2],D[s-1]];break;
 case 6:D[s]=D[s-2],s++;break;
 case 7:[D[s-3],D[s-2],D[s-1]]=[D[s-2],D[s-1],D[s-3]];break;
-case 23:D[s-1]=-D[s-1]|0;break;
+case 23:D[s-1]=-D[s-1];break;
 case 27:D[s-1]=~D[s-1];break;
 case 48:case 49:case 50:{
 const y=((p[x-2]|p[x-1]<<8)<<16)>>16;
@@ -45,7 +45,7 @@ q=C[--c];
 break;
 case 64:case 65:{
 const y=D[s-1];
-if(y<0||y>=256)return d(6);
+if((y>>>0)>255)return d(6);
 if(z===64)D[s-1]=M[y];else{M[y]=D[s-2];s-=2;}
 break;
 }
